@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+  </head>
+  <body>
+    <!-- header -->
+    <div id="header" class="flex center align">
+      <img src="HeaderLogo.png" alt="">
+    </div>
+
+    <div class="container">
+      <!-- "pledge to vote" png -->
+      <img src="PledgeToVote.png" alt="">
+      <!-- form -->
+      <form id="visible-form" class="flex column center align" action="index.html" method="post">
+        <div id="sec-name" class="form-section">
+          <p>I pledge to vote for Jaime Harrison for U.S. Senate:</p>
+          <input id="first-name" type="text" maxlength="20" name="first-name" placeholder="First Name..." required>
+          <input id="last-name" type="text" maxlength="20" name="last-name" placeholder="Last Name..." required>
+          <button id="next-1" class="next-button" type="button" name="next-1" onclick="displayNext('#sec-reason')" disabled>Next</button>
+        </div>
+        <div id="sec-reason" class="form-section">
+          <p>Why are you voting for Jaime?</p>
+          <input id="jaime-reason" type="radio" name="reason" value="jaime" required>
+          <label for="jaime-reason">South Carolina deserves a Senator who cares about our state</label>
+          <input id="lindsey-reason" type="radio" name="reason" value="lindsey">
+          <label for="lindsey-reason">Lindsey Graham doesn't represent me and my values</label>
+          <input id="issues-reason" type="radio" name="reason" value="issues">
+          <label for="issues-reason">Jaime will fight for issues I care about</label>
+          <input id="other-reason" type="radio" name="reason" value="other">
+          <label for="other-reason">
+            Other: <input id="other-input" type="text" maxlength="150" name="other-input" placeholder="My reason..." disabled>
+          </label>
+          <button id="next-2" class="next-button" type="button" name="next-2" onclick="displayNext('#sec-how')" disabled>Next</button>
+        </div>
+        <div id="sec-how" class="form-section">
+          <p>How are you voting?</p>
+          <input id="mail-in" type="radio" name="vote-method" value="mail-in" required>
+          <label for="mail-in">I'll vote absentee by mail</label>
+          <input id="abs-inperson" type="radio" name="vote-method" value="absentee in-person">
+          <label for="abs-inperson">I'll vote absentee in person</label>
+          <input id="inperson" type="radio" name="vote-method" value="in-person">
+          <label for="inperson">I'll vote in safely in person</label>
+          <button id="next-3" class="next-button" type="button" name="next-3" onclick="displayNext('#sec-address')" disabled>Next</button>
+        </div>
+        <div id="sec-address" class="form-section">
+          <p>One last thing. Where are you voting and how can we remind you?</p>
+          <input id="email-address" type="email" name="email-address" placeholder="Email Address..." required>
+          <input id="phone" type="tel" name="phone" placeholder="Phone Number...">
+          <select id="state-select" required>
+          	<option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District Of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</o<option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+          </select>
+          <input id="zip" name="zip" type="text" inputmode="numeric" placeholder="Zip Code..." required>
+          <button type="submit" name="submit-button">Submit Pledge</button>
+        </div>
+      </form>
+
+      <div id="footer" class="flex column center align">
+        <img src="FooterLogo.png" alt="">
+
+        <div class="flex center align">
+          <p>Paid for by Jaime Harrison for U.S. Senate</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
