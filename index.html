@@ -6,24 +6,25 @@
 
     <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="scripts/main.js"></script>
   </head>
   <body>
     <!-- header -->
     <div id="header" class="flex center align">
-      <img src="HeaderLogo.png" alt="">
+      <img src="images/HeaderLogo.png" alt="">
     </div>
 
-    <div class="container">
+    <div id="container" class="container">
       <!-- "pledge to vote" png -->
-      <img src="PledgeToVote.png" alt="">
+      <img id="pledge-header" src="PledgeToVote.png" alt="">
       <!-- form -->
       <form id="visible-form" class="flex column center align" action="index.html" method="post">
         <div id="sec-name" class="form-section">
-          <p>I pledge to vote for Jaime Harrison for U.S. Senate:</p>
+          <h2>I'm voting for Jaime Harrison</h2>
           <input id="first-name" type="text" maxlength="20" name="first-name" placeholder="First Name..." required>
           <input id="last-name" type="text" maxlength="20" name="last-name" placeholder="Last Name..." required>
-          <button id="next-1" class="next-button" type="button" name="next-1" onclick="displayNext('#sec-reason')" disabled>Next</button>
+          <button id="next-1" class="next-button" type="button" name="next-1" onclick="displayNext('#sec-reason'); myScroll('#sec-reason')" disabled>Next</button>
         </div>
         <div id="sec-reason" class="form-section">
           <p>Why are you voting for Jaime?</p>
@@ -37,7 +38,7 @@
           <label for="other-reason">
             Other: <input id="other-input" type="text" maxlength="150" name="other-input" placeholder="My reason..." disabled>
           </label>
-          <button id="next-2" class="next-button" type="button" name="next-2" onclick="displayNext('#sec-how')" disabled>Next</button>
+          <button id="next-2" class="next-button" type="button" name="next-2" onclick="displayNext('#sec-how'); myScroll('#sec-how')" disabled>Next</button>
         </div>
         <div id="sec-how" class="form-section">
           <p>How are you voting?</p>
@@ -47,7 +48,7 @@
           <label for="abs-inperson">I'll vote absentee in person</label>
           <input id="inperson" type="radio" name="vote-method" value="in-person">
           <label for="inperson">I'll vote in safely in person</label>
-          <button id="next-3" class="next-button" type="button" name="next-3" onclick="displayNext('#sec-address')" disabled>Next</button>
+          <button id="next-3" class="next-button" type="button" name="next-3" onclick="displayNext('#sec-address'); myScroll('#sec-address')" disabled>Next</button>
         </div>
         <div id="sec-address" class="form-section">
           <p>One last thing. Where are you voting and how can we remind you?</p>
@@ -60,14 +61,14 @@
           <button type="submit" name="submit-button">Submit Pledge</button>
         </div>
       </form>
-
       <div id="footer" class="flex column center align">
-        <img src="FooterLogo.png" alt="">
+        <img src="images/FooterLogo.png" alt="">
 
         <div class="flex center align">
           <p>Paid for by Jaime Harrison for U.S. Senate</p>
         </div>
       </div>
+      <!-- container ends -->
     </div>
   </body>
 </html>

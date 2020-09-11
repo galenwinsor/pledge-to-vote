@@ -1,13 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 :root{
   --strong-blue: #022639;
   --strong-red: #c50f3c;
   --light-blue: #24485a;
+  --light-red: #f83c6f;
+}
+
+html{
+  margin:0;
 }
 
 body {
+  width:100%;
+  margin:0;
   font-family: Poppins, Arial;
+  color:white;
+  display:hidden;
+  background-color: var(--strong-blue);
 }
 
 .flex {
@@ -28,14 +39,69 @@ body {
   align-items: center;
 }
 
+#header{
+  width:inherit;
+  padding: 1em;
+  margin:0;
+  box-sizing:border-box;
+}
+
 .form-section{
   display:none;
-  min-height:700px;
-  height:75vh;
+  min-height:450px;
+  height:60vh
+}
+
+input select {
+  display:block !important;
+}
+
+input:focus {
+  outline:none;
+  background-color: var(--light-red);
+  color:white;
+}
+
+button {
+  display:block !important;
+  border:none;
+  border-radius:4px;
+}
+
+.next-button{
+  background-color:var(--strong-red);
+}
+
+.next-button:hover{
+  cursor:pointer;
+}
+
+.next-button:disabled {
+  background-color: #aaa;
+}
+
+.form-section h2{
+  line-height:1em;
 }
 
 #sec-name{
   display:block;
+}
+
+#sec-name input{
+  width:90%;
+  margin:0.8em 0;
+  padding:0.4em;
+  border:none;
+  border-radius:5px;
+  font-size:0.85em;
+}
+
+#footer{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
 }
 
 /* mobile */
@@ -47,5 +113,21 @@ body {
     overflow:hidden;
   }
 
+  #header img{
+    width:50%;
+  }
 
+  .form-section{
+    font-size:2em;
+  }
+
+  .next-button {
+    font-size:0.85em;
+    width:3em;
+    padding:0.2em;
+  }
+
+  #footer img{
+    width:20%;
+  }
 }

@@ -2,6 +2,15 @@
 // enabling buttons based on form contents
 $('document').ready(function() {
 
+  $('#container').addClass('fade');
+
+  $('input[id="other-reason"]').change(function() {
+    if ($('input[id="other-reason"]:checked').val()) {
+      $('#other-input').removeAttr('disabled');
+    } else {
+      $('#other-input').attr('disabled', 'true');
+    }
+  })
 
   // check if name fields are filled out
   $('#first-name, #last-name').keyup(function() {
@@ -32,4 +41,10 @@ $('document').ready(function() {
 
 function displayNext(next) {
   $(next).show();
+}
+
+function myScroll(element) {
+  $('html,body').animate({
+    scrollTop: $(element).offset().top
+  }, 1500);
 }
