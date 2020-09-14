@@ -11,7 +11,7 @@
   </head>
   <body>
     <!-- header -->
-    <div id="header" class="flex center align">
+    <div id="header" class="flex align left-aligned">
       <img src="images/HeaderLogo.png" alt="">
     </div>
 
@@ -20,45 +20,116 @@
       <img id="pledge-header" src="PledgeToVote.png" alt="">
       <!-- form -->
       <form id="visible-form" class="flex column center align" action="index.html" method="post">
-        <div id="sec-name" class="form-section">
-          <h2>I'm voting for Jaime Harrison</h2>
-          <input id="first-name" type="text" maxlength="20" name="first-name" placeholder="First Name..." required>
-          <input id="last-name" type="text" maxlength="20" name="last-name" placeholder="Last Name..." required>
-          <button id="next-1" class="next-button" type="button" name="next-1" onclick="displayNext('#sec-reason'); myScroll('#sec-reason')" disabled>Next</button>
+        <div id="sec-name" class="form-section flex column center align">
+          <div class="form-card">
+            <span class="flex align">
+              <svg class="check-box" width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path id="check-name" class="check" fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+              </svg>
+              <h1>I'm <span style="color:var(--strong-red)">voting</span> for Jaime Harrison</h1>
+            </span>
+            <input id="first-name" type="text" maxlength="20" name="first-name" placeholder="First Name..." required>
+            <input id="last-name" type="text" maxlength="20" name="last-name" placeholder="Last Name..." required>
+            <button id="next-1" class="next-button flex align" type="button" name="next-1" onclick="next('#sec-reason','#check-name')" disabled>
+              Next
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-90deg-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+              </svg>
+            </button>
+          </div>
         </div>
-        <div id="sec-reason" class="form-section">
-          <p>Why are you voting for Jaime?</p>
-          <input id="jaime-reason" type="radio" name="reason" value="jaime" required>
-          <label for="jaime-reason">South Carolina deserves a Senator who cares about our state</label>
-          <input id="lindsey-reason" type="radio" name="reason" value="lindsey">
-          <label for="lindsey-reason">Lindsey Graham doesn't represent me and my values</label>
-          <input id="issues-reason" type="radio" name="reason" value="issues">
-          <label for="issues-reason">Jaime will fight for issues I care about</label>
-          <input id="other-reason" type="radio" name="reason" value="other">
-          <label for="other-reason">
-            Other: <input id="other-input" type="text" maxlength="150" name="other-input" placeholder="My reason..." disabled>
-          </label>
-          <button id="next-2" class="next-button" type="button" name="next-2" onclick="displayNext('#sec-how'); myScroll('#sec-how')" disabled>Next</button>
+        <div id="sec-reason" class="form-section flex column center align">
+          <div class="form-card">
+            <span class="flex align">
+              <svg class="check-box" width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path id="check-reason" class="check" fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+              </svg>
+              <h1>Why are you voting for Jaime?</h1>
+            </span>
+            <label name="reason-label" for="jaime-reason">
+              <input id="jaime-reason" type="radio" name="reason" value="jaime" required>
+              <span class="radio-control">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+                </svg>
+              </span> South Carolina deserves a Senator who cares about our state
+            </label>
+            <label name="reason-label" for="lindsey-reason">
+              <input id="lindsey-reason" type="radio" name="reason" value="lindsey">
+              <span class="radio-control">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+                </svg>
+              </span> Lindsey Graham doesn't represent me and my values
+            </label>
+            <label name="reason-label" for="issues-reason">
+              <input id="issues-reason" type="radio" name="reason" value="issues">
+              <span class="radio-control">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+                </svg>
+              </span> Jaime will fight for issues I care about
+            </label>
+            <label name="reason-label" for="other-reason">
+              <input id="other-reason" type="radio" name="reason" value="other">
+              <span class="radio-control">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+                </svg>
+              </span> Other: <input id="other-input" type="text" maxlength="150" name="other-input" placeholder="My reason..." disabled>
+            </label>
+            <button id="next-2" class="next-button flex align" type="button" name="next-2" onclick="next('#sec-how','#check-reason')" disabled>
+              Next
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-90deg-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.854 14.854a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V3.5A2.5 2.5 0 0 1 6.5 1h8a.5.5 0 0 1 0 1h-8A1.5 1.5 0 0 0 5 3.5v9.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4z"/>
+              </svg>
+            </button>
+          </div>
         </div>
-        <div id="sec-how" class="form-section">
-          <p>How are you voting?</p>
-          <input id="mail-in" type="radio" name="vote-method" value="mail-in" required>
-          <label for="mail-in">I'll vote absentee by mail</label>
-          <input id="abs-inperson" type="radio" name="vote-method" value="absentee in-person">
-          <label for="abs-inperson">I'll vote absentee in person</label>
-          <input id="inperson" type="radio" name="vote-method" value="in-person">
-          <label for="inperson">I'll vote in safely in person</label>
-          <button id="next-3" class="next-button" type="button" name="next-3" onclick="displayNext('#sec-address'); myScroll('#sec-address')" disabled>Next</button>
+        <div id="sec-how" class="form-section flex column center align">
+          <div class="form-card">
+            <span name="flex align">
+              <svg class="check-box" width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path id="check-how" class="check" fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+              </svg>
+              <h1>How are you voting?</h1>
+            </span>
+            <label name="how-label" for="mail-in">
+              <input id="mail-in" type="radio" name="vote-method" value="mail-in" required> I'll vote absentee by mail
+            </label>
+            <label name="how-label" for="abs-inperson">
+              <input id="abs-inperson" type="radio" name="vote-method" value="absentee in-person"> I'll vote absentee in person
+            </label>
+            <label name="how-label" for="inperson">
+              <input id="inperson" type="radio" name="vote-method" value="in-person"> I'll vote in safely in person
+            </label>
+            <button id="next-3" class="next-button" type="button" name="next-3" onclick="next('#sec-address','#check-how')" disabled>Next</button>
+          </div>
         </div>
-        <div id="sec-address" class="form-section">
-          <p>One last thing. Where are you voting and how can we remind you?</p>
-          <input id="email-address" type="email" name="email-address" placeholder="Email Address..." required>
-          <input id="phone" type="tel" name="phone" placeholder="Phone Number...">
-          <select id="state-select" required>
-          	<option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District Of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</o<option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
-          </select>
-          <input id="zip" name="zip" type="text" inputmode="numeric" placeholder="Zip Code..." required>
-          <button type="submit" name="submit-button">Submit Pledge</button>
+        <div id="sec-address" class="form-section flex column center align">
+          <div class="form-card">
+            <span class="flex align">
+              <svg class="check-box" width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path id="check-address" class="check" style="display:none" fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+              </svg>
+              <h1>One last thing. Where are you voting and how can we remind you?</h1>
+            </span>
+            <input id="email-address" type="email" name="email-address" placeholder="Email Address..." required>
+            <input id="phone" type="tel" name="phone" placeholder="Phone Number...">
+            <select id="state-select" required>
+              <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District Of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</o<option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+            </select>
+            <input id="zip" name="zip" type="text" inputmode="numeric" placeholder="Zip Code..." required>
+            <button type="submit" name="submit-button">Submit Pledge</button>
+          </div>
         </div>
       </form>
       <div id="footer" class="flex column center align">

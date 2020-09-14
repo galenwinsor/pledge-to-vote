@@ -37,14 +37,30 @@ $('document').ready(function() {
       $('#next-3').attr('disabled', 'true')
     };
   });
+
+  $('label[name="reason-label"]').click(function() {
+    checkedReason($(this));
+  })
+
+  $('label[name="how-label"]').click(function() {
+    checkedHow($(this));
+  })
 });
 
-function displayNext(next) {
+function next(next, checkbox) {
   $(next).show();
+  $(checkbox).css('display','block');
+  $('html,body').delay(500).animate({
+    scrollTop: $(next).offset().top
+  }, 1400);
 }
 
-function myScroll(element) {
-  $('html,body').animate({
-    scrollTop: $(element).offset().top
-  }, 1500);
+function checkedReason(label) {
+  $('label[name="reason-label"]').removeClass('chosen');
+  label.addClass('chosen');
+}
+
+function checkedHow(label) {
+  $('label[name="how-label"]').removeClass('chosen');
+  label.addClass('chosen');
 }

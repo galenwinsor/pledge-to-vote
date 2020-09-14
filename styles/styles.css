@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 :root{
   --strong-blue: #022639;
@@ -15,11 +16,13 @@ html{
 body {
   width:100%;
   margin:0;
-  font-family: Poppins, Arial;
-  color:white;
+  font-family: 'Playfair Display', Arial;
+  color:var(--strong-blue);
   display:hidden;
   background-color: var(--strong-blue);
 }
+
+/* globals */
 
 .flex {
   display: flex;
@@ -39,95 +42,140 @@ body {
   align-items: center;
 }
 
-#header{
-  width:inherit;
-  padding: 1em;
-  margin:0;
-  box-sizing:border-box;
+.left-aligned {
+  justify-content: flex-start;
 }
 
-.form-section{
-  display:none;
-  min-height:450px;
-  height:60vh
-}
+/* inputs */
 
-input select {
-  display:block !important;
-}
-
-input:focus {
-  outline:none;
-  background-color: var(--light-red);
-  color:white;
-}
-
-button {
-  display:block !important;
-  border:none;
-  border-radius:4px;
-}
-
-.next-button{
-  background-color:var(--strong-red);
-}
-
-.next-button:hover{
-  cursor:pointer;
-}
-
-.next-button:disabled {
-  background-color: #aaa;
-}
-
-.form-section h2{
-  line-height:1em;
-}
-
-#sec-name{
+input {
   display:block;
 }
 
-#sec-name input{
-  width:90%;
-  margin:0.8em 0;
+input[type="radio"] {
+  display:none;
+}
+
+label {
+  display:block;
+  font-size:1.5em;
+  margin:0.2em 0;
   padding:0.4em;
-  border:none;
+  background-color:var(--light-blue);
   border-radius:5px;
-  font-size:0.85em;
+  color:#eee;
 }
 
-#footer{
-  position:absolute;
-  left:0;
-  bottom:0;
+.chosen {
+  background-color: var(--strong-red);
+}
+
+label:hover {
+  cursor:pointer;
+  background-color: var(--strong-red);
+}
+
+input[type="text"] {
+  border:none;
+  border-bottom:2px solid black;
+  width:70%;
+  margin:1em 0;
+  font-family:'Playfair Display';
+  font-size:1.5em;
+}
+
+input[type="text"]:focus{
+  outline:none;
+  background-color:#ddd;
+}
+
+#other-input{
+  display:inline;
+  font-size:1.2em;
+  background-color:var(--light-blue);
+  color:#ddd;
+}
+
+/* container */
+
+.container {
+  margin:0 auto;
+  width:60%;
+}
+
+/* header */
+
+#header {
+  top:0;
   width:100%;
+  padding:2em 3em;
+  box-sizing: border-box;
 }
 
-/* mobile */
-@media only screen and (max-width:600px) {
-  .container {
-    width:90%;
-    padding:0;
-    margin:0 auto;
-    overflow:hidden;
-  }
+#header img {
+  width:20%;
+}
 
-  #header img{
-    width:50%;
-  }
+/* form */
 
-  .form-section{
-    font-size:2em;
-  }
+.form-section {
+  position:relative;
+  width:100%;
+  min-height:500px;
+  height:80vh;
+}
 
-  .next-button {
-    font-size:0.85em;
-    width:3em;
-    padding:0.2em;
-  }
+.form-card {
+  position:relative;
+  background-color:white;
+  width:100%;
+  padding:2em;
+}
 
-  #footer img{
-    width:20%;
-  }
+.form-section h1 {
+  font-size:3em;
+  margin-left:0.7em;
+}
+
+.check-box {
+  fill:black;
+}
+
+.check {
+  display:none;
+  fill:var(--strong-red);
+}
+
+.next-button {
+  border:none;
+  background-color:white;
+  color:var(--light-blue  );
+  border-radius:3px;
+  font-family:inherit;
+  font-size:1.5em;
+  margin:0 auto;
+  margin-top:1em;
+}
+
+.next-button:hover {
+  cursor:pointer;
+}
+
+.next-button:disabled{
+  color:#777;
+}
+
+.next-button:disabled:hover {
+  cursor:default;
+}
+
+.next-button svg {
+  fill:var(--strong-blue);
+  display:none;
+  margin-left: 0.2em;
+  transform:scale(-1,1)
+}
+
+.next-button:enabled svg {
+  display:block;
 }
