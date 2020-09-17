@@ -7,9 +7,31 @@
     <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="scripts/svg.min.js"></script>
     <script src="scripts/main.js"></script>
   </head>
   <body>
+
+    <div id="initial-display-box">
+      <h1 id="voice-header">Your <span id="voice" style="color:var(--strong-red)">Voice</span></h1>
+      <h1 id="vote-header">Your <span id="vote" style="color:var(--strong-red)">Vote</span></h1>
+      <h1 id="hope-header">Our <span id="hope" style="color:var(--strong-red)">Hope</span>
+      <img style="width:10%; display:inline" src="images/south-carolina.png" alt=""></h1>
+
+      <div id="begin-box">
+        <button class="flex align" id="begin" type="button" name="begin-button" disabled>
+          Pledge to vote now
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="background">
+
+    </div>
+
     <!-- header -->
     <div id="header" class="flex align left-aligned">
       <img src="images/HeaderLogo.png" alt="">
@@ -49,7 +71,7 @@
               <h1>I'm voting for Jaime because...</h1>
             </span>
             <label name="reason-label" for="jaime-reason">
-              <input id="jaime-reason" type="radio" name="reason" value="jaime" required>
+              <input id="jaime-reason" type="radio" name="reason" value="South Carolina deserves a Senator who cares about our state" required>
               <span class="radio-control">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -57,8 +79,8 @@
                 </svg>
               </span> South Carolina deserves a Senator who cares about our state
             </label>
+            <input id="lindsey-reason" type="radio" name="reason" value="Lindsey Graham doesn't represent me and my values">
             <label name="reason-label" for="lindsey-reason">
-              <input id="lindsey-reason" type="radio" name="reason" value="lindsey">
               <span class="radio-control">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -67,7 +89,7 @@
               </span> Lindsey Graham doesn't represent me and my values
             </label>
             <label name="reason-label" for="lindsey-reason">
-              <input id="changed-reason" type="radio" name="reason" value="changed">
+              <input id="changed-reason" type="radio" name="reason" value="Lindsey Graham has changed">
               <span class="radio-control">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -76,7 +98,7 @@
               </span> Lindsey Graham has changed
             </label>
             <label name="reason-label" for="issues-reason">
-              <input id="issues-reason" type="radio" name="reason" value="issues">
+              <input id="issues-reason" type="radio" name="reason" value="Jaime will fight for the issues that matter to me">
               <span class="radio-control">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -161,14 +183,15 @@
           </div>
         </div>
       </form>
-      <!-- container ends -->
-    </div>
-    <div id="footer" class="flex column center align">
-      <img src="images/FooterLogo.png" alt="">
 
-      <div id="paid-footer" class="flex center align">
-        <p>PAID FOR BY JAIME HARRISON FOR U.S. SENATE</p>
+      <div id="footer" class="flex column center align">
+        <img src="images/FooterLogo.png" alt="">
+
+        <div id="paid-footer" class="flex center align">
+          <p>PAID FOR BY JAIME HARRISON FOR U.S. SENATE</p>
+        </div>
       </div>
+      <!-- container ends -->
     </div>
   </body>
 </html>
