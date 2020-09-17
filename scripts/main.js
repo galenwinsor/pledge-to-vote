@@ -143,10 +143,14 @@ function openingAnimation() {
                   $(this).animate({
                     fontSize: '100%'
                   }, 300, function() {
-                    $('#begin').animate({
-                      opacity:1
-                    }, 500);
-                    $('#begin').removeAttr('disabled');
+                    $('#state-outline').animate({
+                      left:'20%'
+                    }, 800, function() {
+                      $('#begin').animate({
+                        opacity:1
+                      }, 500);
+                      $('#begin').removeAttr('disabled');
+                    })
                   })
                 })
               })

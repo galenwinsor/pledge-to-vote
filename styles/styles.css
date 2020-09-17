@@ -127,6 +127,13 @@ input[type="text"]:focus{
   font-size:3em;
 }
 
+#state-outline {
+  position:absolute;
+  width:6.5em;
+  top:36%;
+  left:-500px;
+}
+
 #initial-display-box h1 {
   margin:0;
   position:absolute;
