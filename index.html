@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta charset="utf-8">
     <title>Pledge to Vote for Jaime</title>
 
@@ -53,6 +54,7 @@
             </span>
             <input id="first-name" type="text" maxlength="20" name="first-name" placeholder="First Name..." required>
             <input id="last-name" type="text" maxlength="20" name="last-name" placeholder="Last Name..." required>
+            <input id="zip" name="zip" type="text" inputmode="numeric" placeholder="Zip Code..." required>
             <button id="next-1" class="next-button flex align" type="button" name="next-1" onclick="next('#sec-reason','#check-name')" disabled>
               Next
               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-90deg-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -174,11 +176,10 @@
                 <path id="check-address" class="check" style="display:none" fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                 <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
               </svg>
-              <h1>Where are you voting and how can we remind you?</h1>
+              <h1>How can we remind you?</h1>
             </span>
             <input id="email-address" type="email" name="email-address" placeholder="Email Address..." required>
             <input id="phone" type="tel" name="phone" placeholder="Phone Number...">
-            <input id="zip" name="zip" type="text" inputmode="numeric" placeholder="Zip Code..." required>
             <button id="submit" type="submit" name="submit-button">Submit Pledge</button>
           </div>
         </div>

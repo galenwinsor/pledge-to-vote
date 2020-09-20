@@ -12,18 +12,13 @@
 
 html, body {
   height: 100%;
-}
-
-html{
-  margin:0;
+  margin:0
 }
 
 body {
   width:100%;
-  margin:0;
   font-family: 'Poppins', Arial;
   color:var(--strong-blue);
-  display:hidden;
 }
 
 /* globals */
@@ -72,7 +67,7 @@ input[type="radio"] {
 
 label {
   display:block;
-  font-size:1.5em;
+  font-size:1.3em;
   margin:0.2em 0;
   padding:0.4em;
   background-color:var(--light-blue);
@@ -92,7 +87,7 @@ label:hover {
 input[type="text"], input[type="email"], input[type="tel"] {
   border:none;
   border-bottom:2px solid black;
-  width:70%;
+  width:90%;
   margin:1em 0;
   font-size:1.5em;
 }
@@ -103,6 +98,7 @@ input[type="text"]:focus{
 }
 
 #other-input{
+  margin:0;
   display:inline;
   font-size:1.2em;
   background-color:inherit;
@@ -116,30 +112,91 @@ input[type="text"]:focus{
 
 /* initial display */
 
+@media only screen and (max-width:1000px) {
+  #initial-display-box h1 {
+    font-size: 8vw !important;
+  }
+
+  #state-outline {
+    width:27% !important;
+    left: 15% !important;
+  }
+
+  #begin {
+    font-size:5vw !important;
+  }
+}
+
+@media only screen and (max-width:700px) {
+  #initial-display-box h1 {
+    font-size:11vw !important;
+  }
+
+  #state-outline {
+    display:none;
+  }
+
+  #voice-header {
+    left: 19.7% !important;
+  }
+
+  #hope-header {
+    left:23.7% !important;
+  }
+
+  #begin-box {
+    bottom:20%;
+  }
+
+  #begin {
+    font-size: 6vw !important;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  #begin-box {
+    bottom: 20% !important;
+  }
+}
+
+@media only screen and (max-width:500px) {
+
+  #begin {
+    font-size: 8vw !important;
+  }
+}
+
 #initial-display-box {
   position:absolute;
   width:100%;
   min-height:500px;
   height:100%;
-  background-color: var(--strong-blue);
+  /* background-color: var(--strong-blue); */
+  background-image:
+    linear-gradient(
+      to bottom right,
+      var(--strong-blue) 10%,
+      var(--light-blue)
+    );
   z-index:3;
   color:white;
-  font-size:3em;
 }
 
 #state-outline {
   position:absolute;
-  width:6.5em;
+  width:20%;
   top:36%;
-  left:-500px;
+  left:20%;
+  opacity:0;
 }
 
 #initial-display-box h1 {
   margin:0;
   position:absolute;
+  font-size:6.5vw;
 }
 
-#voice-header {
+/* #voice-header {
   position:absolute;
   top:-200px;
 }
@@ -153,6 +210,24 @@ input[type="text"]:focus{
   position: absolute;
   top: 10%;
   left:-700px;
+} */
+
+#voice-header {
+  position:absolute;
+  top:-20%;
+  left:23%;
+}
+
+#vote-header {
+  position:absolute;
+  left: -55%;
+  top: 30%;
+}
+
+#hope-header {
+  position: absolute;
+  bottom:-20%;
+  left:47%;
 }
 
 #begin-box {
@@ -167,12 +242,13 @@ input[type="text"]:focus{
   color: white;
   background-color: inherit;
   font-family:inherit;
-  font-size:1em;
+  font-size:3vw;
   margin:0 auto;
 }
 
 #begin:hover {
   cursor:pointer;
+  text-shadow: 3px 3px 3px black;
 }
 
 #begin svg {
@@ -188,7 +264,8 @@ input[type="text"]:focus{
   left:0;
   margin:0;
   width:100vw;
-  height:100vh;
+  height:100%;
+  max-height: 100%;
   background: url('../images/south-carolina-flag.png');
   background-size: cover;
   filter: blur(7px) grayscale(50%);
@@ -203,6 +280,18 @@ input[type="text"]:focus{
 }
 
 /* header */
+
+@media only screen and (max-width:900px) {
+  #header img {
+    width:34% !important;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  #header img {
+    width:52% !important;
+  }
+}
 
 #header {
   position:relative;
@@ -219,8 +308,28 @@ input[type="text"]:focus{
 
 /* form */
 
+@media only screen and (max-width:900px) {
+  .check-box {
+    width:5em !important;
+  }
+
+  .form-section h1 {
+    font-size:2.2em !important;
+  }
+}
+
+@media only screen and (max-width:650px) {
+  .form-section h1 {
+    font-size: 1.9em !important;
+  }
+
+  label {
+    font-size: 1.1em !important;
+  }
+}
+
 #visible-form {
-  width:60%;
+  width:90%;
   margin:0 auto;
 }
 
@@ -238,6 +347,7 @@ input[type="text"]:focus{
 }
 
 .form-card {
+  box-sizing: border-box;
   position:absolute;
   background-color:white;
   width:100%;
@@ -332,6 +442,27 @@ input[type="text"]:focus{
 }
 
 /* display box */
+
+@media only screen and (max-width:800px) {
+  #buttons a {
+    font-size:1em !important;
+  }
+}
+
+@media only screen and (max-width:680px) {
+  #graphic-box {
+    flex-direction: column-reverse !important;
+  }
+
+  #buttons {
+    margin-left:0 !important;
+  }
+
+  #social-buttons {
+    flex-direction: row;
+    margin-bottom:1em;
+  }
+}
 
 #display-box {
   width:100%;

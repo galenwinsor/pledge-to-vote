@@ -1,5 +1,3 @@
-
-// enabling buttons based on form contents
 $('document').ready(function() {
 
   var viewWidth = window.width;
@@ -7,15 +5,29 @@ $('document').ready(function() {
 
   openingAnimation();
 
+  $(window).resize(function() {
+    if (window.innerWidth > 700) {
+      $('#voice-header').css('left','23%');
+      $('#vote-header').css('left','35%');
+      $('#hope-header').css('left','47%');
+    } else {
+      $('#voice-header').css('left','19.7%');
+      $('#vote-header').css('left','22.42%');
+      $('#hope-header').css('left','23.7%');
+    }
+  })
+
+  // click begin
   $('#begin').click(function() {
     $('#initial-display-box').hide();
     $('.container').show();
     $('.container').animate({
       opacity:1
     }, 850);
-    $('#header').css('backgroundColor','#022639');
+    $('#header').css('backgroundImage','linear-gradient(to bottom, var(--strong-blue), var(--light-blue))');
   })
 
+  // enable "other" field
   $('input[id="other-reason"]').change(function() {
     if ($('input[id="other-reason"]:checked').val()) {
       $('#other-input').removeAttr('disabled');
@@ -25,8 +37,8 @@ $('document').ready(function() {
   })
 
   // check if name fields are filled out
-  $('#first-name, #last-name').keyup(function() {
-    if ($('#first-name').val() != '' && $('#last-name').val() != '') {
+  $('#first-name, #last-name, #zip').keyup(function() {
+    if ($('#first-name').val() != '' && $('#last-name').val() != '' && $('#zip').val() != '') {
       $('#next-1').removeAttr('disabled');
     } else {
       $('#next-1').attr('disabled','true');
@@ -42,6 +54,7 @@ $('document').ready(function() {
     };
   });
 
+  // enable next for vote method buttons
   $("input[name='vote-method']").change(function() {
     if ($("input[name='vote-method']:checked").val()) {
       $('#next-3').removeAttr('disabled');
@@ -50,6 +63,7 @@ $('document').ready(function() {
     };
   });
 
+  // handling radio button functionality for labels
   $('label[name="reason-label"]').click(function() {
     checkedReason($(this));
   })
@@ -64,17 +78,27 @@ $('document').ready(function() {
         e.preventDefault();
         return false;
     }
-});
+  });
 
+  // on submit
   $('button[type="submit"]').click(function() {
-    if (checkZip($('#zip').val())) {
       setStorage();
       goShare();
-    }
   })
 });
 
 function next(next, checkbox) {
+  if (next == '#sec-reason') {
+    if (checkZip($('#zip').val())) {
+      $(next).css('display','flex');
+      $(checkbox).show();
+      $('html,body').delay(500).animate({
+        scrollTop: $(next).offset().top
+      }, 1400);
+    } else {
+      return
+    }
+  }
   $(next).css('display','flex');
   $(checkbox).show();
   $('html,body').delay(500).animate({
@@ -113,39 +137,48 @@ function setStorage() {
 }
 
 function openingAnimation() {
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+  var voice_left = '23%';
+  var vote_left = '35%';
+  var hope_left = '47%';
+  if (width < 700) {
+    voice_left = '19.7%';
+    vote_left = '22.42%';
+    hope_left = '23.7%';
+  }
   $('#voice-header').animate({
     top:'15%',
-    left: '23%'
-  }, 800, function() {
+    left: voice_left
+  }, 500, function() {
     $('#voice').animate({
       fontSize: '120%'
-    }, 300, function() {
+    }, 200, function() {
       $('#voice').animate({
         fontSize: '100%'
-      }, 300, function() {
+      }, 200, function() {
         $('#vote-header').animate({
-          top:'30%',
-          left: '35%'
-        }, 900, function() {
+          left: vote_left,
+        }, 600, function() {
           $('#vote').animate({
-            fontSize: '140%'
-          }, 300, function() {
+            fontSize: '120%'
+          }, 200, function() {
             $('#vote').animate({
               fontSize: '100%'
-            }, 300, function() {
+            }, 200, function() {
               $('#hope-header').animate({
                 top:'45%',
-                left:'47%'
-              }, 1000, function() {
+                left: hope_left
+              }, 700, function() {
                 $('#hope').animate({
                   fontSize:'120%'
-                }, 300, function() {
+                }, 200, function() {
                   $(this).animate({
                     fontSize: '100%'
-                  }, 300, function() {
+                  }, 200, function() {
                     $('#state-outline').animate({
-                      left:'20%'
-                    }, 800, function() {
+                      opacity:1
+                    }, 400  , function() {
                       $('#begin').animate({
                         opacity:1
                       }, 500);
