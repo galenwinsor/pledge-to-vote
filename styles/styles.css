@@ -180,12 +180,13 @@ input[type="text"]:focus{
     );
   z-index:3;
   color:white;
+  overflow:hidden;
 }
 
 #state-outline {
   position:absolute;
   width:20%;
-  top:36%;
+  top:44%;
   left:20%;
   opacity:0;
 }
@@ -268,6 +269,7 @@ input[type="text"]:focus{
   max-height: 100%;
   background: url('../images/south-carolina-flag.png');
   background-size: cover;
+  box-sizing: border-box;
   filter: blur(7px) grayscale(50%);
 }
 
@@ -316,9 +318,17 @@ input[type="text"]:focus{
   .form-section h1 {
     font-size:2.2em !important;
   }
+
+  input[type="text"], input[type="tel"], input[type="email"] {
+    font-size: 1.2em !important;
+  }
 }
 
 @media only screen and (max-width:650px) {
+  #visible-form {
+    width:85% !important;
+  }
+
   .form-section h1 {
     font-size: 1.9em !important;
   }
@@ -329,7 +339,7 @@ input[type="text"]:focus{
 }
 
 #visible-form {
-  width:90%;
+  width:75%;
   margin:0 auto;
 }
 
@@ -416,6 +426,14 @@ input[type="text"]:focus{
   font-size:1.5em;
 }
 
+/* footer */
+
+@media only screen and (max-width:900px) {
+  #footer img {
+    width:30% !important;
+  }
+}
+
 #footer {
   margin-top:5em;
   padding-top:2em;
@@ -425,7 +443,7 @@ input[type="text"]:focus{
 }
 
 #footer img {
-  width:14%;
+  width:20%;
 }
 
 #paid-footer {
@@ -434,7 +452,9 @@ input[type="text"]:focus{
   border:2px solid var(--light-blue);
   font-family:Poppins;
   font-size:100%;
+  text-align:center;
   color:var(--light-blue);
+  max-width:70%;
 }
 
 #paid-footer p {

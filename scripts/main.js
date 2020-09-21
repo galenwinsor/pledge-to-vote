@@ -39,16 +39,24 @@ $('document').ready(function() {
   // check if name fields are filled out
   $('#first-name, #last-name, #zip').keyup(function() {
     if ($('#first-name').val() != '' && $('#last-name').val() != '' && $('#zip').val() != '') {
+      $('#check-name').show();
       $('#next-1').removeAttr('disabled');
     } else {
       $('#next-1').attr('disabled','true');
     }
   });
 
+  $('#phone, #email').keyup(function() {
+    if ($('#phone').val() != '' && $('#email').val() != '') {
+      $('#check-address').show();
+    }
+  })
+
   // check if reason fields are filled out
   $("input[name='reason']").change(function() {
     if ($("input[name='reason']:checked").val()) {
       $('#next-2').removeAttr('disabled');
+      $('#check-reason').show();
     } else {
       $('#next-2').attr('disabled', 'true')
     };
@@ -58,6 +66,7 @@ $('document').ready(function() {
   $("input[name='vote-method']").change(function() {
     if ($("input[name='vote-method']:checked").val()) {
       $('#next-3').removeAttr('disabled');
+      $('#check-how').show();
     } else {
       $('#next-3').attr('disabled', 'true')
     };
@@ -82,8 +91,9 @@ $('document').ready(function() {
 
   // on submit
   $('button[type="submit"]').click(function() {
+      sendData();
       setStorage();
-      goShare();
+      // goShare();
   })
 });
 
@@ -132,8 +142,8 @@ function goShare() {
 
 function setStorage() {
   sessionStorage.setItem('name', $('#first-name').val() + ' ' + $('#last-name').val());
-  sessionStorage.setItem('reason', $('input[name="reason"]').val());
-  sessionStorage.setItem('how', $('input[name="vote-method"]').val());
+  sessionStorage.setItem('reason', $('input[name="reason"]:checked').val());
+  sessionStorage.setItem('how', $('input[name="vote-method"]:checked').val());
 }
 
 function openingAnimation() {
@@ -193,4 +203,36 @@ function openingAnimation() {
       })
     })
   });
+}
+
+function createData() {
+  var first = $('#first-name').val();
+  var last = $('#last-name').val();
+  var zip = $('#zip').val();
+  var email = encodeURIComponent($('#email-address').val());
+  var phone = $('#phone').val();
+  var reason = encodeURIComponent($('input[name="reason"]:checked').val());
+  var method = encodeURIComponent($('input[name="vote-method"]:checked').val());
+
+  var body = 'email=' + email + '&firstname=' + first + '&lastname=' + last + '&zip=' + zip + '&phone=' + phone + '&custom-3694=' + reason + '&custom-3695=' + method;
+  return body
+}
+
+function sendData() {
+  var data = createData();
+  console.log(data);
+
+  fetch('https://go.jaimeharrison.com/page/sapi/pledge-to-vote', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    mode: 'cors',
+    body:data
+  }).then(response => response.json()).then(data => {
+    console.log('Success:', data)
+  })
+  .catch(error => {
+    console.log('Error:', error)
+  })
 }
