@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Share Your Pledge</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/jquery.min.js"></script>
+    <script src='scripts/fabric.min.js'></script>
+    <script src='scripts/fontfaceobserver.min.js'></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/graphic.js"></script>
+  </head>
+  <body>
+
+    <div class="background">
+
+    </div>
+
+    <div id="header" class="flex align left-aligned">
+      <img src="images/HeaderLogo.png" alt="">
+    </div>
+
+    <div id="display-box" class="flex column center align">
+      <h1 id="thank-you">Thank you!</h1>
+      <h2>By pledging to vote for Jaime, you're helping bring hope back to South Carolina. Now download your graphic and share!</h2>
+      <div id="graphic-box" class="flex center align">
+        <img id="pledge-graphic" src="" alt="">
+
+        <div id="buttons" class="flex column center align">
+          <h3>Share with your friends!</h3>
+          <div id="social-buttons" class="flex column center align">
+            <a id="download" class="flex center align" href="#" download="TeamJaimeAvatar.png">
+              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+              </svg>
+              Download
+            </a>
+            <a id="tweet" href="twitter.com" class="flex center align">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="white"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+              Tweet
+            </a>
+            <a id="share" class="flex center align" href="https://facebook.com/sharer/sharer.php?u=https://hero.jaimeharrison.com" target="_blank">
+              <svg fill="white" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+              Share
+            </a>
+          </div>
+        </div>
+      </div>
+      <canvas id="c" width="1080" height="1080"></canvas>
+      <img id="frame" style="display:none" src="images/PledgeToVoteTemplate.png" alt="">
+    </div>
+
+    <div id="footer" class="flex column center align">
+      <img src="images/FooterLogo.png" alt="">
+
+      <div id="paid-footer" class="flex center align">
+        <p>PAID FOR BY JAIME HARRISON FOR U.S. SENATE</p>
+      </div>
+    </div>
+  </body>
+</html>
