@@ -28,9 +28,9 @@
       </div>
     </div>
 
-    <div class="background">
+    <!-- <div class="background">
 
-    </div>
+    </div> -->
 
     <!-- header -->
     <div id="header" class="flex align left-aligned">
@@ -51,8 +51,8 @@
               </svg>
               <h1>I'm <span style="color:var(--strong-red)">voting</span> for Jaime Harrison</h1>
             </span>
-            <input id="first-name" type="text" maxlength="20" name="first-name" placeholder="First Name..." required>
-            <input id="last-name" type="text" maxlength="20" name="last-name" placeholder="Last Name..." required>
+            <input id="first-name" type="text" maxlength="20" name="firstname" placeholder="First Name..." required>
+            <input id="last-name" type="text" maxlength="20" name="lastname" placeholder="Last Name..." required>
             <input id="zip" name="zip" type="text" inputmode="numeric" placeholder="Zip Code..." required>
             <button id="next-1" class="next-button flex align" type="button" name="next-1" onclick="next('#sec-reason','#check-name')" disabled>
               Next
@@ -72,7 +72,7 @@
               <h1>I'm voting for Jaime because...</h1>
             </span>
             <label name="reason-label" for="jaime-reason">
-              <input id="jaime-reason" type="radio" name="reason" value="South Carolina deserves a Senator who cares about our state" required>
+              <input id="jaime-reason" type="radio" name="custom-3694" value="South Carolina deserves a Senator who cares about our state" required>
               <span class="radio-control">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -80,7 +80,7 @@
                 </svg>
               </span> South Carolina deserves a Senator who cares about our state
             </label>
-            <input id="lindsey-reason" type="radio" name="reason" value="Lindsey Graham doesn't represent me and my values">
+            <input id="lindsey-reason" type="radio" name="custom-3694" value="Lindsey Graham doesn't represent me and my values">
             <label name="reason-label" for="lindsey-reason">
               <span class="radio-control">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +90,7 @@
               </span> Lindsey Graham doesn't represent me and my values
             </label>
             <label name="reason-label" for="lindsey-reason">
-              <input id="changed-reason" type="radio" name="reason" value="Lindsey Graham has changed">
+              <input id="changed-reason" type="radio" name="custom-3694" value="Lindsey Graham has changed">
               <span class="radio-control">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -99,7 +99,7 @@
               </span> Lindsey Graham has changed
             </label>
             <label name="reason-label" for="issues-reason">
-              <input id="issues-reason" type="radio" name="reason" value="Jaime will fight for the issues that matter to me">
+              <input id="issues-reason" type="radio" name="custom-3694" value="Jaime will fight for the issues that matter to me">
               <span class="radio-control">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -108,7 +108,7 @@
               </span> Jaime will fight for the issues that matter to me
             </label>
             <label name="reason-label" for="other-reason">
-              <input id="other-reason" type="radio" name="reason" value="other">
+              <input id="other-reason" type="radio" name="custom-3694" value="other">
               <span class="radio-control">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -140,7 +140,7 @@
                   <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
                 </svg>
               </span>
-              <input id="mail-in" type="radio" name="vote-method" value="mail-in" required> Absentee by mail
+              <input id="mail-in" type="radio" name="custom-3695" value="mail-in" required> Absentee by mail
             </label>
             <label name="how-label" for="abs-inperson">
               <span class="radio-control">
@@ -149,7 +149,7 @@
                   <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
                 </svg>
               </span>
-              <input id="abs-inperson" type="radio" name="vote-method" value="absentee in-person"> Absentee in person
+              <input id="abs-inperson" type="radio" name="custom-3695" value="absentee in-person"> Absentee in person
             </label>
             <label name="how-label" for="inperson">
               <span class="radio-control">
@@ -158,7 +158,7 @@
                   <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
                 </svg>
               </span>
-              <input id="inperson" type="radio" name="vote-method" value="in-person"> Safely in person
+              <input id="inperson" type="radio" name="custom-3695" value="in-person"> Safely in person
             </label>
             <button id="next-3" class="next-button flex align" type="button" name="next-3" onclick="next('#sec-address','#check-how')" disabled>
               Next
@@ -177,7 +177,7 @@
               </svg>
               <h1>How can we remind you?</h1>
             </span>
-            <input id="email-address" type="email" name="email-address" placeholder="Email Address...">
+            <input id="email-address" type="email" name="email" placeholder="Email Address...">
             <input id="phone" type="tel" name="phone" placeholder="Phone Number...">
             <button id="submit" type="submit" name="submit-button">Submit Pledge</button>
           </div>

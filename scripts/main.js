@@ -24,7 +24,6 @@ $('document').ready(function() {
     $('.container').animate({
       opacity:1
     }, 850);
-    $('#header').css('backgroundImage','linear-gradient(to bottom, var(--strong-blue), var(--light-blue))');
   })
 
   // enable "other" field
@@ -53,8 +52,8 @@ $('document').ready(function() {
   })
 
   // check if reason fields are filled out
-  $("input[name='reason']").change(function() {
-    if ($("input[name='reason']:checked").val()) {
+  $("input[name='custom-3694']").change(function() {
+    if ($("input[name='custom-3694']:checked").val()) {
       $('#next-2').removeAttr('disabled');
       $('#check-reason').show();
     } else {
@@ -63,8 +62,8 @@ $('document').ready(function() {
   });
 
   // enable next for vote method buttons
-  $("input[name='vote-method']").change(function() {
-    if ($("input[name='vote-method']:checked").val()) {
+  $("input[name='custom-3695']").change(function() {
+    if ($("input[name='custom-3695']:checked").val()) {
       $('#next-3').removeAttr('disabled');
       $('#check-how').show();
     } else {
@@ -160,7 +159,7 @@ function openingAnimation() {
   $('#voice-header').animate({
     top:'15%',
     left: voice_left
-  }, 500, function() {
+  }, 350, function() {
     $('#voice').animate({
       fontSize: '120%'
     }, 200, function() {
@@ -179,7 +178,7 @@ function openingAnimation() {
               $('#hope-header').animate({
                 top:'45%',
                 left: hope_left
-              }, 700, function() {
+              }, 500, function() {
                 $('#hope').animate({
                   fontSize:'120%'
                 }, 200, function() {
@@ -219,17 +218,19 @@ function createData() {
 }
 
 function sendData() {
-  var data = createData();
-  console.log(data);
 
-  fetch('https://go.jaimeharrison.com/page/sapi/pledge-to-vote', {
+  var data = new FormData(document.getElementById('visible-form'));
+  for (var pair of data.entries()) {
+   console.log(pair[0] + ', ' + pair[1]);
+  }
+
+  fetch('https://us-east1-galen-winsor-playground.cloudfunctions.net/pledge-bsd-proxy', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
     mode: 'cors',
-    body:data
-  }).then(response => response.json()).then(data => {
+    body: data
+  })
+  .then(response => response.json())
+  .then(data => {
     console.log('Success:', data)
   })
   .catch(error => {
