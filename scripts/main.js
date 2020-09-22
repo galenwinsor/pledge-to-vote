@@ -24,6 +24,7 @@ $('document').ready(function() {
     $('.container').animate({
       opacity:1
     }, 850);
+    $('#header').css('background','var(--strong-blue)');
   })
 
   // enable "other" field

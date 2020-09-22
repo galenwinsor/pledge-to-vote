@@ -348,7 +348,12 @@ input[type="text"]:focus{
 }
 
 #sec-name {
-  background: var(--strong-red);
+  background: linear-gradient(
+    to bottom right,
+    var(--strong-blue) 0 33%,
+    var(--strong-red) 33% 66%,
+    var(--strong-blue) 66% 100%
+  );
   display:flex;
   margin-top: -4em;
 }
@@ -444,7 +449,6 @@ input[type="text"]:focus{
 }
 
 #footer {
-  margin-top:5em;
   padding-top:2em;
   bottom:0;
   width:100%;
