@@ -21,7 +21,7 @@ $('document').ready(function() {
       $('#sec-reason').css('margin-bottom', '1em');
     } else if ($('#sec-name').css('height') < $('#name-card').css('height')) {
       $('#sec-name').css('height', $('#name-card').css('height'));
-      $('#sec-name').css('margin-bottom', '1em');
+      $('#sec-name').css('padding-bottom', '1em');
     }
   })
 
@@ -101,7 +101,7 @@ $('document').ready(function() {
   $('button[type="submit"]').click(function() {
       sendData();
       setStorage();
-      // goShare();
+      goShare();
   })
 });
 
@@ -150,8 +150,8 @@ function goShare() {
 
 function setStorage() {
   sessionStorage.setItem('name', $('#first-name').val() + ' ' + $('#last-name').val());
-  sessionStorage.setItem('reason', $('input[name="reason"]:checked').val());
-  sessionStorage.setItem('how', $('input[name="vote-method"]:checked').val());
+  sessionStorage.setItem('reason', $('input[name="custom-3694"]:checked').val());
+  sessionStorage.setItem('how', $('input[name="custom-3695"]:checked').val());
 }
 
 function openingAnimation() {
@@ -213,19 +213,6 @@ function openingAnimation() {
   });
 }
 
-function createData() {
-  var first = $('#first-name').val();
-  var last = $('#last-name').val();
-  var zip = $('#zip').val();
-  var email = encodeURIComponent($('#email-address').val());
-  var phone = $('#phone').val();
-  var reason = encodeURIComponent($('input[name="reason"]:checked').val());
-  var method = encodeURIComponent($('input[name="vote-method"]:checked').val());
-
-  var body = 'email=' + email + '&firstname=' + first + '&lastname=' + last + '&zip=' + zip + '&phone=' + phone + '&custom-3694=' + reason + '&custom-3695=' + method;
-  return body
-}
-
 function sendData() {
 
   var data = new FormData(document.getElementById('visible-form'));
@@ -233,7 +220,7 @@ function sendData() {
    console.log(pair[0] + ', ' + pair[1]);
   }
 
-  fetch('https://us-east1-galen-winsor-playground.cloudfunctions.net/pledge-bsd-proxy', {
+  fetch('https://us-east1-pledge-to-vote.cloudfunctions.net/pledge-bsd-proxy', {
     method: 'POST',
     mode: 'cors',
     body: data

@@ -6,7 +6,7 @@ const frame = {
 const name_params = {
   top: 200,
   left: 200,
-  fontFamily: 'Poppins',
+  fontFamily: 'Shadows Into Light',
   fontSize: 100,
   fill:'black'
 }
@@ -14,7 +14,7 @@ const name_params = {
 const reason_params = {
   top:600,
   left: 200,
-  fontFamily: 'Poppins',
+  fontFamily: 'Shadows Into Light',
   fontSize:50,
   fill: 'black'
 }
@@ -49,10 +49,6 @@ function insertText() {
   console.log(name);
   console.log(reason);
 
-  var font = new FontFace('Poppins','url(https://fonts.googleapis.com/css?family=Poppins:400,700,900)');
-  font.load().then(function() {
-    document.fonts.add(font);
-  });
   canvas.add(name_text);
   canvas.add(reason_text);
 }

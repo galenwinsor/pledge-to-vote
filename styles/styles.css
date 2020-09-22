@@ -53,6 +53,7 @@ body {
 
 input {
   display:block;
+  border-radius: 0px;
   font-family: 'Shadows Into Light';
 }
 
@@ -86,6 +87,7 @@ label:hover {
 
 input[type="text"], input[type="email"], input[type="tel"] {
   border:none;
+  border-radius:0px;
   border-bottom:2px solid black;
   width:90%;
   margin:1em 0;
@@ -94,6 +96,7 @@ input[type="text"], input[type="email"], input[type="tel"] {
 
 input[type="text"]:focus{
   outline:none;
+  border-radius:0px;
   background-color:#ddd;
 }
 
@@ -268,10 +271,16 @@ input[type="text"]:focus{
   height:100%;
   max-height: 100%;
   background: linear-gradient(
-    to bottom right,
-    var(--strong-blue) 0 33%,
-    var(--strong-red) 33% 66%,
-    var(--strong-blue) 66% 100%
+    135deg,
+    var(--strong-blue) 0 16%,
+    var(--light-blue) 16% 25%,
+    #216378 25% 33%,
+    var(--strong-red) 33% 45%,
+    #d7625b 45% 55%,
+    var(--strong-red) 55% 66%,
+    #216378 66% 74%,
+    var(--light-blue) 74% 83%,
+    var(--strong-blue) 83% 100%
   );
   background-size: contain;
   box-sizing: border-box;
@@ -469,6 +478,11 @@ input[type="text"]:focus{
   #buttons a {
     font-size:1em !important;
   }
+
+  #display-box h2 {
+    width:90% !important;
+    margin-bottom: 0.2em !important;
+  }
 }
 
 @media only screen and (max-width:680px) {
@@ -484,10 +498,15 @@ input[type="text"]:focus{
     flex-direction: row;
     margin-bottom:1em;
   }
+
+  #pledge-graphic {
+    width:80% !important;
+  }
 }
 
 #display-box {
   width:100%;
+  margin-bottom: 2em;
 }
 
 #thank-you {
@@ -545,7 +564,7 @@ input[type="text"]:focus{
 }
 
 #download {
-  background-color:var(--strong-red);
+  background-color:var(--light-red);
 }
 
 #tweet {
