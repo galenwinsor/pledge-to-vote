@@ -15,6 +15,14 @@ $('document').ready(function() {
       $('#vote-header').css('left','22.42%');
       $('#hope-header').css('left','23.7%');
     }
+
+    if ($('#sec-reason').css('height') < $('#reason-card').css('height')) {
+      $('#sec-reason').css('height', $('#reason-card').css('height'));
+      $('#sec-reason').css('margin-bottom', '1em');
+    } else if ($('#sec-name').css('height') < $('#name-card').css('height')) {
+      $('#sec-name').css('height', $('#name-card').css('height'));
+      $('#sec-name').css('margin-bottom', '1em');
+    }
   })
 
   // click begin
@@ -102,7 +110,7 @@ function next(next, checkbox) {
     if (checkZip($('#zip').val())) {
       $(next).css('display','flex');
       $(checkbox).show();
-      $('html,body').delay(500).animate({
+      $('html,body').animate({
         scrollTop: $(next).offset().top
       }, 1400);
     } else {
@@ -111,7 +119,7 @@ function next(next, checkbox) {
   }
   $(next).css('display','flex');
   $(checkbox).show();
-  $('html,body').delay(500).animate({
+  $('html,body').animate({
     scrollTop: $(next).offset().top
   }, 1400);
 }

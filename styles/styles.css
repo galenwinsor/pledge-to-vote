@@ -267,10 +267,14 @@ input[type="text"]:focus{
   width:100vw;
   height:100%;
   max-height: 100%;
-  background: url('../images/south-carolina-flag.png');
+  background: linear-gradient(
+    to bottom right,
+    var(--strong-blue) 0 33%,
+    var(--strong-red) 33% 66%,
+    var(--strong-blue) 66% 100%
+  );
   background-size: contain;
   box-sizing: border-box;
-  filter: blur(7px) grayscale(50%);
 }
 
 /* container */
@@ -326,6 +330,10 @@ input[type="text"]:focus{
 
 @media only screen and (max-width:650px) {
 
+  .form-section {
+    min-height: 760px !important;
+  }
+
   .form-section h1 {
     font-size: 1.9em !important;
   }
@@ -343,31 +351,13 @@ input[type="text"]:focus{
   display:none;
   position:relative;
   width:100%;
-  min-height:500px;
+  min-height:705px;
   height:100vh;
 }
 
 #sec-name {
-  background: linear-gradient(
-    to bottom right,
-    var(--strong-blue) 0 33%,
-    var(--strong-red) 33% 66%,
-    var(--strong-blue) 66% 100%
-  );
   display:flex;
   margin-top: -4em;
-}
-
-#sec-reason {
-  background: var(--strong-blue);
-}
-
-#sec-how {
-  background: var(--strong-red);
-}
-
-#sec-address {
-  background: var(--strong-blue);
 }
 
 .form-card {
@@ -377,7 +367,6 @@ input[type="text"]:focus{
   width:75%;
   margin:0 auto;
   padding:1em 2em;
-  max-height:100%;
 }
 
 .form-section h1 {
