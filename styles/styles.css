@@ -5,7 +5,7 @@
 
 :root{
   --strong-blue: #022639;
-  --strong-red: #c50f3c;
+  --strong-red: #ca2541;
   --light-blue: #24485a;
   --light-red: #f83c6f;
 }
@@ -318,7 +318,7 @@ input[type="text"]:focus{
 }
 
 #header img {
-  width:20%;
+  width:30%;
 }
 
 /* form */
@@ -428,6 +428,8 @@ input[type="text"]:focus{
 }
 
 #submit{
+  display:flex;
+  align-items: center;
   margin-top:1em;
   margin:0 auto;
   border:none;
@@ -436,6 +438,20 @@ input[type="text"]:focus{
   border-radius:3px;
   font-family:inherit;
   font-size:1.5em;
+  text-align:center;
+}
+
+#submit:hover {
+  cursor:pointer;
+}
+
+#mobile-policy {
+  margin:0 auto;
+  margin-top:4em;
+  width:80%;
+  color:var(--light-blue);
+  font-size:0.5em;
+  text-align: center;
 }
 
 /* footer */
@@ -504,9 +520,20 @@ input[type="text"]:focus{
   }
 }
 
+@media only screen and (max-width:550px) {
+  #display-box h2 {
+    font-size:1em;
+    margin-bottom:2em !important;
+  }
+
+  #display-box h3 {
+    display:none;
+  }
+}
+
 #display-box {
   width:100%;
-  margin-bottom: 2em;
+  margin-bottom: 10em;
 }
 
 #thank-you {
@@ -514,6 +541,7 @@ input[type="text"]:focus{
   font-size:5em;
   margin:0;
   margin-bottom:0.3em;
+  text-align: center;
 }
 
 #display-box h1 {
@@ -522,8 +550,8 @@ input[type="text"]:focus{
 
 #display-box h2  {
   margin-bottom:2em;
-  color:#dedede;
-  width:50%;
+  color:white;
+  width:80%;
   text-align: center;
 }
 
@@ -539,6 +567,22 @@ input[type="text"]:focus{
 /* override fabric's display */
 .lower-canvas{
   display:none;
+}
+
+#registration {
+  margin-bottom:1em;
+  padding:0.7em 1.3em;
+  color:white;
+  background:#1c7c91;
+  text-decoration: none;
+  transition: 0.2s ease filter;
+  text-align: center;
+  font-size:1.5em;
+  width:9em;
+}
+
+#registration:hover {
+  filter: brightness(1.4) drop-shadow(4px 4px 4px black);
 }
 
 #buttons {

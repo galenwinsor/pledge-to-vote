@@ -98,10 +98,11 @@ $('document').ready(function() {
   });
 
   // on submit
-  $('button[type="submit"]').click(function() {
-      sendData();
-      setStorage();
-      goShare();
+  $('button[type="submit"]').click(async function() {
+    await sendData();
+    console.log('success');
+    setStorage();
+    goShare();
   })
 });
 
@@ -168,32 +169,32 @@ function openingAnimation() {
   $('#voice-header').animate({
     top:'15%',
     left: voice_left
-  }, 350, function() {
+  }, 300, function() {
     $('#voice').animate({
       fontSize: '120%'
-    }, 200, function() {
+    }, 150, function() {
       $('#voice').animate({
         fontSize: '100%'
-      }, 200, function() {
+      }, 150, function() {
         $('#vote-header').animate({
           left: vote_left,
-        }, 600, function() {
+        }, 450, function() {
           $('#vote').animate({
             fontSize: '120%'
-          }, 200, function() {
+          }, 150, function() {
             $('#vote').animate({
               fontSize: '100%'
-            }, 200, function() {
+            }, 150, function() {
               $('#hope-header').animate({
                 top:'45%',
                 left: hope_left
-              }, 500, function() {
+              }, 300, function() {
                 $('#hope').animate({
                   fontSize:'120%'
-                }, 200, function() {
+                }, 150, function() {
                   $(this).animate({
                     fontSize: '100%'
-                  }, 200, function() {
+                  }, 150, function() {
                     $('#state-outline').animate({
                       opacity:1
                     }, 400  , function() {
@@ -220,16 +221,20 @@ function sendData() {
    console.log(pair[0] + ', ' + pair[1]);
   }
 
-  fetch('https://us-east1-pledge-to-vote.cloudfunctions.net/pledge-bsd-proxy', {
-    method: 'POST',
-    mode: 'cors',
-    body: data
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Success:', data)
-  })
-  .catch(error => {
-    console.log('Error:', error)
+  return new Promise((resolve,reject) => {
+    fetch('https://us-east1-pledge-to-vote.cloudfunctions.net/pledge-bsd-proxy', {
+      method: 'POST',
+      mode: 'cors',
+      body: data
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      resolve(data);
+    })
+    .catch(error => {
+      console.log('Error:', error);
+      reject(error);
+    })
   })
 }
