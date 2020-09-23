@@ -1,22 +1,28 @@
 const frame = {
-  height: 1080,
-  width: 1080
+  height: 1200,
+  width: 1200
 }
 
 const name_params = {
-  top: 200,
-  left: 200,
+  left: 254.86,
+  top: 87.93,
+  width: 800,
+  height: 254.86,
+  textAlign: 'center',
   fontFamily: 'Shadows Into Light',
   fontSize: 100,
-  fill:'black'
+  fill:'white'
 }
 
 const reason_params = {
-  top:600,
-  left: 200,
+  top:699.81,
+  left: 123.81,
+  height: 302.18,
+  width: 969.62,
+  textAlign: 'center',
   fontFamily: 'Shadows Into Light',
-  fontSize:50,
-  fill: 'black'
+  fontSize:100,
+  fill: 'white'
 }
 
 var canvas = null;
@@ -41,10 +47,9 @@ window.onload = function() {
 }
 
 function insertText() {
-  name_text = new fabric.Text(name, name_params);
+  name_text = new fabric.Textbox(name, name_params);
 
   reason_text = new fabric.Textbox(reason, reason_params);
-  reason_text.set('width',700)
 
   console.log(name);
   console.log(reason);
