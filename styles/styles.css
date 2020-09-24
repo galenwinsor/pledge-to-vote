@@ -559,10 +559,6 @@ input[type="text"]:focus{
   color:white;
 }
 
-#graphic-border {
-  border: 10px solid white;
-}
-
 #pledge-graphic {
   width:45%;
   filter: drop-shadow(10px 10px 10px black);

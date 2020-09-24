@@ -83,6 +83,7 @@ $('document').ready(function() {
   // handling radio button functionality for labels
   $('label[name="reason-label"]').click(function() {
     checkedReason($(this));
+    console.log($('input[name="custom-3694"]:checked').val());
   })
 
   $('label[name="how-label"]').click(function() {
@@ -172,29 +173,29 @@ function openingAnimation() {
   }, 300, function() {
     $('#voice').animate({
       fontSize: '120%'
-    }, 150, function() {
+    }, 170, function() {
       $('#voice').animate({
         fontSize: '100%'
-      }, 150, function() {
+      }, 170, function() {
         $('#vote-header').animate({
           left: vote_left,
-        }, 450, function() {
+        }, 550, function() {
           $('#vote').animate({
             fontSize: '120%'
-          }, 150, function() {
+          }, 170, function() {
             $('#vote').animate({
               fontSize: '100%'
-            }, 150, function() {
+            }, 170, function() {
               $('#hope-header').animate({
                 top:'45%',
                 left: hope_left
-              }, 300, function() {
+              }, 650  , function() {
                 $('#hope').animate({
                   fontSize:'120%'
-                }, 150, function() {
+                }, 170, function() {
                   $(this).animate({
                     fontSize: '100%'
-                  }, 150, function() {
+                  }, 170, function() {
                     $('#state-outline').animate({
                       opacity:1
                     }, 400  , function() {
