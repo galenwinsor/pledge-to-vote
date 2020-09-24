@@ -256,6 +256,7 @@ input[type="text"]:focus{
 }
 
 #begin svg {
+  display:inline;
   margin-left:0.6em;
 }
 
