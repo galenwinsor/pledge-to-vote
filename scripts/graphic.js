@@ -40,8 +40,7 @@ window.onload = function() {
   fabric_frame = new fabric.Image(document.getElementById('frame'));
   canvas.sendToBack(fabric_frame);
 
-  // name = sessionStorage.getItem('name');
-  name = "Margaret Thatcher-Wilder-Cummings"
+  name = sessionStorage.getItem('name');
   reason = sessionStorage.getItem('reason');
 
   insertText();
