@@ -100,9 +100,9 @@ $('document').ready(function() {
 
   // on submit
   $('button[type="submit"]').click(async function() {
-    await sendData();
-    console.log('success');
     setStorage();
+    // await sendData();
+    console.log('success');
     goShare();
   })
 });
@@ -151,6 +151,10 @@ function goShare() {
 }
 
 function setStorage() {
+  var reason = $('input[name="custom-3694"]:checked').val();
+  if (reason == 'other') {
+    $('input[name="custom-3694"]:checked').val($('#other-input').val());
+  }
   sessionStorage.setItem('name', $('#first-name').val() + ' ' + $('#last-name').val());
   sessionStorage.setItem('reason', $('input[name="custom-3694"]:checked').val());
   sessionStorage.setItem('how', $('input[name="custom-3695"]:checked').val());

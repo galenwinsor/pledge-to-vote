@@ -619,3 +619,25 @@ input[type="text"]:focus{
 #share {
   background-color:#3b5998;
 }
+
+#test-reason {
+  line-height:1em;
+  position:absolute;
+  visibility:hidden;
+  height:auto;
+  width: 969.62px;
+  text-align:center;
+  font-size: 100pt;
+  font-family:'Shadows Into Light';
+}
+
+#test-name {
+  line-height: 1em;
+  position:absolute;
+  visibility:hidden;
+  height:auto;
+  width: 800px;
+  text-align:center;
+  font-size: 100pt;
+  font-family:'Shadows Into Light';
+}
