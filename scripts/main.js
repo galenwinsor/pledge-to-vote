@@ -101,7 +101,7 @@ $('document').ready(function() {
   // on submit
   $('button[type="submit"]').click(async function() {
     setStorage();
-    // await sendData();
+    await sendData();
     console.log('success');
     goShare();
   })
