@@ -100,6 +100,7 @@ $('document').ready(function() {
 
   // on submit
   $('button[type="submit"]').click(async function() {
+    $('#loading').css('display','flex');
     setStorage();
     await sendData();
     console.log('success');
