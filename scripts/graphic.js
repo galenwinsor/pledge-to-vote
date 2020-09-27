@@ -51,7 +51,7 @@ window.onload = function() {
 function insertText() {
   var testReason = document.getElementById('test-reason');
   testReason.innerHTML = reason;
-  var testHeight = (testReason.clientHeight + 1) * 0.7;
+  var testHeight = (testReason.clientHeight + 1) * 0.9;
 
   var testName = document.getElementById('test-name');
   testName.innerHTML = name;
