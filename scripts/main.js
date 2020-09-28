@@ -102,7 +102,7 @@ $('document').ready(function() {
   $('button[type="submit"]').click(async function() {
     $('#loading').css('display','flex');
     setStorage();
-    // await sendData();
+    await sendData();
     console.log('success');
     goShare();
   })
