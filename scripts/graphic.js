@@ -34,7 +34,7 @@ var name_text = null;
 var reason = null;
 var reason_text = null;
 
-window.onload = function() {
+window.onload = async function() {
   canvas = new fabric.StaticCanvas('c');
 
   fabric_frame = new fabric.Image(document.getElementById('frame'));
@@ -43,12 +43,16 @@ window.onload = function() {
   name = sessionStorage.getItem('name');
   reason = sessionStorage.getItem('reason');
 
-  insertText();
+  document.fonts.load('100pt Shadows Into Light').then(function() {
+    insertText();
 
-  generateGraphic();
+    generateGraphic();
+  })
+  .catch(error => console.log('Font error:', error));
 }
 
 function insertText() {
+
   var testReason = document.getElementById('test-reason');
   testReason.innerHTML = reason;
   var testHeight = (testReason.clientHeight + 1) * 0.9;
@@ -78,6 +82,7 @@ function insertText() {
 }
 
 function generateGraphic() {
+
   let imgURL = canvas.toDataURL();
 
   $('#pledge-graphic').attr('src',imgURL);
