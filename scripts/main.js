@@ -44,7 +44,8 @@ $('document').ready(function() {
 
   // enable "other" field
   $('input[id="other-reason"]').change(function() {
-    if ($('input[id="other-reason"]:checked').val()) {
+    if ($(this).prop('checked')) {
+      $('#other-input').show();
       $('#other-input').removeAttr('disabled');
     } else {
       $('#other-input').attr('disabled', 'true');
@@ -69,6 +70,10 @@ $('document').ready(function() {
 
   // check if reason fields are filled out
   $("input[name='custom-3694']").change(function() {
+    if ($(this).attr('id') != 'other-reason') {
+      $('#other-input').hide();
+      $('#other-input').prop('disabled',true);
+    }
     if ($("input[name='custom-3694']:checked").val()) {
       $('#next-2').removeAttr('disabled');
       $('#check-reason').show();
@@ -105,6 +110,7 @@ $('document').ready(function() {
     }
   });
 
+  // checking if the device is mobile, choosing whether to show download help
   if ($(window).width() < 500) {
     $('#download').click(function() {
       $('#download-help').css('display','flex');

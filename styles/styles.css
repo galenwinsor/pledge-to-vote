@@ -102,7 +102,7 @@ input[type="text"]:focus{
 
 #other-input{
   margin:0;
-  display:inline;
+  display:none;
   font-size:1.2em;
   background-color:inherit;
   color:inherit;
