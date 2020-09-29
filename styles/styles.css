@@ -595,6 +595,10 @@ input[type="text"]:focus{
   filter: drop-shadow(10px 10px 10px black);
 }
 
+#frame {
+  display:none;
+}
+
 /* override fabric's display */
 .lower-canvas{
   display:none;
@@ -648,6 +652,12 @@ input[type="text"]:focus{
 
 #share {
   background-color:#3b5998;
+}
+
+#prevent-width {
+  position:absolute;
+  width:5px;
+  overflow:hidden;
 }
 
 #test-reason {

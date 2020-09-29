@@ -35,20 +35,27 @@ var reason = null;
 var reason_text = null;
 
 window.onload = async function() {
-  canvas = new fabric.StaticCanvas('c');
-
-  fabric_frame = new fabric.Image(document.getElementById('frame'));
-  canvas.sendToBack(fabric_frame);
-
   name = sessionStorage.getItem('name');
   reason = sessionStorage.getItem('reason');
 
-  document.fonts.load('100pt Shadows Into Light').then(function() {
-    insertText();
+  console.log(name, reason);
 
-    generateGraphic();
-  })
-  .catch(error => console.log('Font error:', error));
+  if (name == null || reason == null) {
+    alert("You haven't filled out the proper fields in the form. You will be redirected to the main page.");
+    $(location).attr('href','index.html');
+  } else {
+    canvas = new fabric.StaticCanvas('c');
+
+    fabric_frame = new fabric.Image(document.getElementById('frame'));
+    canvas.sendToBack(fabric_frame);
+
+    document.fonts.load('100pt Shadows Into Light').then(function() {
+      insertText();
+
+      generateGraphic();
+    })
+    .catch(error => console.log('Font error:', error));
+  }
 }
 
 function insertText() {

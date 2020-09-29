@@ -25,6 +25,13 @@ $('document').ready(function() {
     }
   })
 
+  $('#next-1').click(function() {
+    if ($('#sec-reason').css('height') < $('#reason-card').css('height')) {
+      $('#sec-reason').css('height', $('#reason-card').css('height'));
+      $('#sec-reason').css('margin-bottom', '1em');
+    }
+  })
+
   // click begin
   $('#begin').click(function() {
     $('#initial-display-box').hide();
