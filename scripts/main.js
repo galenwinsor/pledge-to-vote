@@ -105,6 +105,16 @@ $('document').ready(function() {
     }
   });
 
+  if ($(window).width() < 500) {
+    $('#download').click(function() {
+      $('#download-help').css('display','flex');
+    })
+
+    $('#download-help').click(function() {
+      $(this).css('display','none');
+    })
+  }
+
   // on submit
   $('button[type="submit"]').click(async function() {
     $('#loading').css('display','flex');

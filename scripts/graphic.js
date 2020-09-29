@@ -38,8 +38,6 @@ window.onload = async function() {
   name = sessionStorage.getItem('name');
   reason = sessionStorage.getItem('reason');
 
-  console.log(name, reason);
-
   if (name == null || reason == null) {
     alert("You haven't filled out the proper fields in the form. You will be redirected to the main page.");
     $(location).attr('href','index.html');
