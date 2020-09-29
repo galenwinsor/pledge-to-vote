@@ -17,9 +17,9 @@ const name_params = {
 
 const reason_params = {
   top:699.81,
-  left: 123.81,
-  height: 302.18,
-  width: 969.62,
+  left: 63.43,
+  height: 290,
+  width: 1060,
   textAlign: 'center',
   fontFamily: 'Shadows Into Light',
   fontSize:100,
