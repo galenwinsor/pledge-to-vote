@@ -475,6 +475,7 @@ input[type="text"]:focus{
   top:0;
   left:0;
   z-index:3;
+  text-align:center;
 }
 
 #loading div {

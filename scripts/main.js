@@ -1,10 +1,9 @@
+// intializing
 $('document').ready(function() {
-
-  var viewWidth = window.width;
-  var viewHeight = window.height;
 
   openingAnimation();
 
+  // responsiveness for opening headers and form sections that can become too tall
   $(window).resize(function() {
     if (window.innerWidth > 700) {
       $('#voice-header').css('left','23%');
@@ -25,6 +24,9 @@ $('document').ready(function() {
     }
   })
 
+  /* ---------------- LISTENERS FOR BUTTONS AND INPUTS ---------------------------- */
+
+  // responsiveness for reason section, when it first appears
   $('#next-1').click(function() {
     if ($('#sec-reason').css('height') < $('#reason-card').css('height')) {
       $('#sec-reason').css('height', $('#reason-card').css('height'));
@@ -52,7 +54,7 @@ $('document').ready(function() {
     }
   })
 
-  // check if name fields are filled out
+  // check if name and zip fields are filled out
   $('#first-name, #last-name, #zip').keyup(function() {
     if ($('#first-name').val() != '' && $('#last-name').val() != '' && $('#zip').val() != '') {
       $('#next-1').removeAttr('disabled');
@@ -76,7 +78,6 @@ $('document').ready(function() {
 
   // enable next for vote method buttons
   $("input[name='custom-3695']").change(function() {
-    console.log($('input[name="custom-3695"]:checked').val());
     if ($("input[name='custom-3695']:checked").val()) {
       $('#next-3').removeAttr('disabled');
     } else {
@@ -87,14 +88,15 @@ $('document').ready(function() {
   // handling radio button functionality for labels
   $('label[name="reason-label"]').click(function() {
     checkedReason($(this));
-    console.log($('input[name="custom-3694"]:checked').val());
   })
 
   $('label[name="how-label"]').click(function() {
     checkedHow($(this));
   })
 
-  // preventing return submitting form
+  /* ---------------- MISCELLANEOUS LISTENERS ---------------------------- */
+
+  // preventing return button from submitting form
   $('form input').keydown(function (e) {
     if (e.keyCode == 13) {
         e.preventDefault();
@@ -113,6 +115,8 @@ $('document').ready(function() {
     })
   }
 
+  /* ---------------- HANDLING SUBMIT ---------------------------- */
+
   // on submit
   $('button[type="submit"]').click(async function() {
     if (!checkZip($('#zip').val())) {
@@ -120,8 +124,13 @@ $('document').ready(function() {
         scrollTop: $('#sec-name').offset().top
       }, 1400);
       return false;
-    }
-    else if (checkFields()) {
+    } else if (!checkEmail()) {
+      alert('Please enter a valid email address.');
+      return false;
+    } else if (!checkPhone()) {
+      alert('Please enter a valid phone number.');
+      return false;
+    } else if (checkFields()) {
       setStorage();
       $('#loading').css('display','flex');
       await sendData();
@@ -133,9 +142,34 @@ $('document').ready(function() {
   })
 });
 
+/* ------------- VALIDATION FUNCTIONS ----------------- */
+
+function checkPhone() {
+  if (!$('#phone').val()) {
+    return true;
+  } else {
+    const re = /^\d{10}$/;
+    return ($('#phone').val().toLowerCase()).match(re)
+  }
+}
+
+function checkEmail() {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return ($('#email-address').val().toLowerCase()).match(re);
+}
+
+function checkZip(zip) {
+  if (zip < 29001 || zip > 29945 || isNaN(zip)) {
+    alert("Please enter a valid South Carolina zip code");
+    return false;
+  } else return true;
+}
+
 function checkFields() {
   return !(!$('#email-address').val() || !$('input[name="custom-3695"]').val() || !$('input[name="custom-3694"]').val() || !$('#first-name').val() || !$('#last-name').val() || !$('#zip').val())
 }
+
+/* ----------------- DYNAMIC ELEMENT FUNCTIONS --------------------- */
 
 function next(next, checkbox) {
   if (next == '#sec-reason') {
@@ -164,27 +198,6 @@ function checkedReason(label) {
 function checkedHow(label) {
   $('label[name="how-label"]').removeClass('chosen');
   label.addClass('chosen');
-}
-
-function checkZip(zip) {
-  if (zip < 29001 || zip > 29945 || isNaN(zip)) {
-    alert("Please enter a valid South Carolina zip code");
-    return false;
-  } else return true;
-}
-
-function goShare() {
-  $(location).attr('href','share.html');
-}
-
-function setStorage() {
-  var reason = $('input[name="custom-3694"]:checked').val();
-  if (reason == 'other') {
-    $('input[name="custom-3694"]:checked').val($('#other-input').val());
-  }
-  sessionStorage.setItem('name', $('#first-name').val() + ' ' + $('#last-name').val());
-  sessionStorage.setItem('reason', $('input[name="custom-3694"]:checked').val());
-  sessionStorage.setItem('how', $('input[name="custom-3695"]:checked').val());
 }
 
 function openingAnimation() {
@@ -246,6 +259,22 @@ function openingAnimation() {
   });
 }
 
+/* ------------ SUBMIT FUNCTIONS -- */
+
+function goShare() {
+  $(location).attr('href','share.html');
+}
+
+function setStorage() {
+  var reason = $('input[name="custom-3694"]:checked').val();
+  if (reason == 'other') {
+    $('input[name="custom-3694"]:checked').val($('#other-input').val());
+  }
+  sessionStorage.setItem('name', $('#first-name').val() + ' ' + $('#last-name').val());
+  sessionStorage.setItem('reason', $('input[name="custom-3694"]:checked').val());
+  sessionStorage.setItem('how', $('input[name="custom-3695"]:checked').val());
+}
+
 function sendData() {
 
   var data = new FormData(document.getElementById('visible-form'));
@@ -265,6 +294,8 @@ function sendData() {
       resolve(data);
     })
     .catch(error => {
+      alert('Whoops! Something went wrong. Please try again.');
+      $('#loading').hide();
       console.log('Error:', error);
       reject(error);
     })
