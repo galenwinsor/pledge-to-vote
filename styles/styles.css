@@ -402,7 +402,6 @@ input[type="text"]:focus{
 }
 
 .check {
-  display:none;
   fill:var(--strong-red);
 }
 

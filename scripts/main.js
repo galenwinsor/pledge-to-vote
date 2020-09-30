@@ -55,18 +55,11 @@ $('document').ready(function() {
   // check if name fields are filled out
   $('#first-name, #last-name, #zip').keyup(function() {
     if ($('#first-name').val() != '' && $('#last-name').val() != '' && $('#zip').val() != '') {
-      $('#check-name').show();
       $('#next-1').removeAttr('disabled');
     } else {
       $('#next-1').attr('disabled','true');
     }
   });
-
-  $('#phone, #email').keyup(function() {
-    if ($('#phone').val() != '' && $('#email').val() != '') {
-      $('#check-address').show();
-    }
-  })
 
   // check if reason fields are filled out
   $("input[name='custom-3694']").change(function() {
@@ -76,7 +69,6 @@ $('document').ready(function() {
     }
     if ($("input[name='custom-3694']:checked").val()) {
       $('#next-2').removeAttr('disabled');
-      $('#check-reason').show();
     } else {
       $('#next-2').attr('disabled', 'true')
     };
@@ -86,7 +78,6 @@ $('document').ready(function() {
   $("input[name='custom-3695']").change(function() {
     if ($("input[name='custom-3695']:checked").val()) {
       $('#next-3').removeAttr('disabled');
-      $('#check-how').show();
     } else {
       $('#next-3').attr('disabled', 'true')
     };
