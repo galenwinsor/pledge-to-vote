@@ -76,6 +76,7 @@ $('document').ready(function() {
 
   // enable next for vote method buttons
   $("input[name='custom-3695']").change(function() {
+    console.log($('input[name="custom-3695"]:checked').val());
     if ($("input[name='custom-3695']:checked").val()) {
       $('#next-3').removeAttr('disabled');
     } else {
@@ -114,13 +115,27 @@ $('document').ready(function() {
 
   // on submit
   $('button[type="submit"]').click(async function() {
-    $('#loading').css('display','flex');
-    setStorage();
-    await sendData();
-    console.log('success');
-    goShare();
+    if (!checkZip($('#zip').val())) {
+      $('html,body').animate({
+        scrollTop: $('#sec-name').offset().top
+      }, 1400);
+      return false;
+    }
+    else if (checkFields()) {
+      setStorage();
+      $('#loading').css('display','flex');
+      await sendData();
+      console.log('success');
+      goShare();
+    } else {
+      alert('Please fill out all the required fields.');
+    }
   })
 });
+
+function checkFields() {
+  return !(!$('#email-address').val() || !$('input[name="custom-3695"]').val() || !$('input[name="custom-3694"]').val() || !$('#first-name').val() || !$('#last-name').val() || !$('#zip').val())
+}
 
 function next(next, checkbox) {
   if (next == '#sec-reason') {
@@ -152,10 +167,7 @@ function checkedHow(label) {
 }
 
 function checkZip(zip) {
-  if (isNaN(zip)) {
-    alert("Please enter a valid zip code.");
-    return false;
-  } else if (zip < 29001 || zip > 29945) {
+  if (zip < 29001 || zip > 29945 || isNaN(zip)) {
     alert("Please enter a valid South Carolina zip code");
     return false;
   } else return true;
