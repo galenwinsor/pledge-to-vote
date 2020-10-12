@@ -63,6 +63,22 @@ $('document').ready(function() {
     }
   });
 
+  $('#voted').change(function() {
+    if ($(this).prop('checked')) {
+      $('#voted-label').addClass('chosen');
+      $('#im-voting').html("I <span id='red-vote' style='color:var(--strong-red)'>voted</span> for Jaime Harrison");
+      $('#because').html("I voted for Jaime because...");
+      $('#i-pledge').html("I voted...");
+      $('#remind').html("How can we thank you?");
+    } else {
+      $('#voted-label').removeClass('chosen');
+      $('#im-voting').html("I'm <span id='red-vote' style='color:var(--strong-red)'>voting</span> for Jaime Harrison");
+      $('#because').html("I'm voting for Jaime because...");
+      $('#i-pledge').html("I pledge to vote...");
+      $('#remind').html("How can we remind you?");
+    }
+  })
+
   // check if reason fields are filled out
   $("input[name='custom-3694']").change(function() {
     if ($(this).attr('id') != 'other-reason') {
@@ -132,6 +148,7 @@ $('document').ready(function() {
       return false;
     } else if (checkFields()) {
       setStorage();
+      console.log($('#voted').val());
       $('#loading').css('display','flex');
       await sendData();
       console.log('success');
@@ -273,6 +290,12 @@ function setStorage() {
   sessionStorage.setItem('name', $('#first-name').val() + ' ' + $('#last-name').val());
   sessionStorage.setItem('reason', $('input[name="custom-3694"]:checked').val());
   sessionStorage.setItem('how', $('input[name="custom-3695"]:checked').val());
+  if ($('#voted').prop('checked')) {
+    sessionStorage.setItem('voted', 'true');
+  } else {
+    $('#voted').val('false');
+    sessionStorage.setItem('voted', 'false');
+  }
 }
 
 function sendData() {

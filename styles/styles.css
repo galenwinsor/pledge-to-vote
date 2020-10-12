@@ -57,6 +57,10 @@ input {
   font-family: 'Shadows Into Light';
 }
 
+input[type="checkbox"] {
+  display:inline;
+}
+
 select {
   font-size:1.5em;
   font-family:inherit;
@@ -74,6 +78,11 @@ label {
   background-color:var(--light-blue);
   border-radius:5px;
   color:#eee;
+}
+
+#voted-label {
+  width:max-content;
+  margin:0 auto;
 }
 
 .chosen {
@@ -374,7 +383,6 @@ input[type="text"]:focus{
 
 #sec-name {
   display:flex;
-  margin-top: -4em;
 }
 
 #instructions {

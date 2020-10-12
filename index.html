@@ -11,9 +11,9 @@
     <meta name="og:image" content="images/PledgePreview.png">
     <title>Pledge to Vote for Jaime</title>
 
-    <link rel="stylesheet" href="styles/styles.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script src="scripts/main.min.js"></script>
+    <script src="scripts/main.js"></script>
   </head>
   <body>
 
@@ -54,7 +54,6 @@
     <div class="container">
       <!-- form -->
       <form id="visible-form" class="flex column center align" action="index.html" method="post" onsubmit="return false">
-        <input type="hidden" id="voted" name="voted" value="false"> 
         <div id="sec-name" class="form-section flex column center align">
           <h2 id="instructions">Pledge to vote for Jaime and generate your own pledge-to-vote graphic for social media.</h2>
           <div id="name-card" class="form-card">
@@ -63,11 +62,21 @@
                 <path id="check-name" class="check" fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                 <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
               </svg>
-              <h1>I'm <span style="color:var(--strong-red)">voting</span> for Jaime Harrison</h1>
+              <h1 id="im-voting">I'm <span id="red-vote" style="color:var(--strong-red)">voting</span> for Jaime Harrison</h1>
             </span>
             <input id="first-name" type="text" maxlength="20" name="firstname" placeholder="First Name..." required>
             <input id="last-name" type="text" maxlength="20" name="lastname" placeholder="Last Name..." required>
             <input id="zip" name="zip" type="text" inputmode="numeric" placeholder="Zip Code..." required>
+            <input type="checkbox" id="voted" name="voted" value="true" style="display:none">
+            <label id="voted-label" for="voted">
+              <span class="radio-control">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+                </svg>
+              </span>
+               I already voted!
+            </label>
             <button id="next-1" class="next-button flex align" type="button" name="next-1" onclick="next('#sec-reason','#check-name')" disabled>
               Next
               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-90deg-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +92,7 @@
                 <path id="check-reason" class="check" fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                 <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
               </svg>
-              <h1>I'm voting for Jaime because...</h1>
+              <h1 id="because">I'm voting for Jaime because...</h1>
             </span>
             <input id="jaime-reason" type="radio" name="custom-3694" value="South Carolina deserves a Senator who cares about our state" required>
             <label name="reason-label" for="jaime-reason">
@@ -145,7 +154,7 @@
                 <path id="check-how" class="check" fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                 <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
               </svg>
-              <h1>I pledge to vote...</h1>
+              <h1 id="i-pledge">I pledge to vote...</h1>
             </span>
             <label name="how-label" for="mail-in">
               <span class="radio-control">
@@ -189,7 +198,7 @@
                 <path id="check-address" class="check" fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                 <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
               </svg>
-              <h1>How can we remind you?</h1>
+              <h1 id="remind">How can we remind you?</h1>
             </span>
             <input id="email-address" type="email" name="email" placeholder="Email Address..." required>
             <input id="phone" type="tel" name="phone" placeholder="Phone Number...">
