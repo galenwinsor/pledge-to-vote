@@ -57,9 +57,6 @@ window.onload = async function() {
   voted = sessionStorage.getItem('voted');
 
   if (name == null || reason == null || how == null) {
-    alert(name);
-    alert(reason);
-    alert(how);
     alert("You haven't filled out the proper fields in the form. You will be redirected to the main page.");
     $(location).attr('href','index.html');
   } else {
