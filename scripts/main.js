@@ -150,8 +150,7 @@ $('document').ready(function() {
       setStorage();
       console.log($('#voted').val());
       $('#loading').css('display','flex');
-      await sendData();
-      console.log('success');
+      // await sendData();
       goShare();
     } else {
       alert('Please fill out all the required fields.');
@@ -298,29 +297,29 @@ function setStorage() {
   }
 }
 
-function sendData() {
-
-  var data = new FormData(document.getElementById('visible-form'));
-  for (var pair of data.entries()) {
-   console.log(pair[0] + ', ' + pair[1]);
-  }
-
-  return new Promise((resolve,reject) => {
-    fetch('https://us-east1-pledge-to-vote.cloudfunctions.net/pledge-bsd-proxy', {
-      method: 'POST',
-      mode: 'cors',
-      body: data
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-      resolve(data);
-    })
-    .catch(error => {
-      alert('Whoops! Something went wrong. Please try again.');
-      $('#loading').hide();
-      console.log('Error:', error);
-      reject(error);
-    })
-  })
-}
+// function sendData() {
+//
+//   var data = new FormData(document.getElementById('visible-form'));
+//   for (var pair of data.entries()) {
+//    console.log(pair[0] + ', ' + pair[1]);
+//   }
+//
+//   return new Promise((resolve,reject) => {
+//     fetch('example.example', {
+//       method: 'POST',
+//       mode: 'cors',
+//       body: data
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//       console.log('Success:', data);
+//       resolve(data);
+//     })
+//     .catch(error => {
+//       alert('Whoops! Something went wrong. Please try again.');
+//       $('#loading').hide();
+//       console.log('Error:', error);
+//       reject(error);
+//     })
+//   })
+// }
